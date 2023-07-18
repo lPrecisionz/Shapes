@@ -6,7 +6,6 @@
 
 namespace shapes{
 
-
 class screen{
 public:
     static const int SCREEN_WIDTH{800};
@@ -24,6 +23,7 @@ public:
     void update();
     void drawPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue);
     bool processEvents(SDL_Event &event);
+    void clear();
     void close();
 };
 

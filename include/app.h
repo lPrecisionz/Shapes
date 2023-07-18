@@ -11,7 +11,6 @@ private:
 
 public:
     static void run();
-
 };
 
 } //namespace shapes
