@@ -19,7 +19,8 @@ public:
     square(int side);
     void draw(screen &screen, Uint8 red, Uint8 green, Uint8 blue);
     void draw(screen &screen);
-    void update();
+    void updatePosition();
+    void update(screen &screen);
     double getRandomSpeed();
     Uint32 getRandomColor();
     int getScreenX(); 

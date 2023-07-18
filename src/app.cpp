@@ -17,16 +17,19 @@ void app::run(){
     square square1(50);
     square square2(10);
     square square3(28);
+    square square4(5);
+    square square5(40);
+    square square6(23);
 
     while (!quit) {
         m_screen.clear();
 
-        square1.draw(m_screen);
-        square1.update();
-        square2.draw(m_screen, 255, 0, 255);
-        square2.update();
-        square3.draw(m_screen);
-        square3.update();
+        square1.update(m_screen);
+        square2.update(m_screen);
+        square3.update(m_screen);
+        square4.update(m_screen);
+        square5.update(m_screen);
+        square6.update(m_screen);
 
         m_screen.update();
         if(!m_screen.processEvents(event)){

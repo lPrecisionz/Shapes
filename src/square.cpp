@@ -15,7 +15,7 @@ square::square(int side) : m_x(0), m_y(0), m_side(side){
     m_color = getRandomColor();
 }
 
-void square::update(){
+void square::updatePosition(){
     m_x += m_xspeed;
     m_y += m_yspeed;
     
@@ -60,6 +60,11 @@ void square::draw(screen &screen){
             screen.drawPixel(current_x, current_y, m_color);
         }
     }
+}
+
+void square::update(screen &screen){
+    this->updatePosition();
+    this->draw(screen);
 }
 
 double square::getRandomSpeed(){
