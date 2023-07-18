@@ -2,7 +2,7 @@
 
 #include "screen.h"
 #include "square.h"
-
+#include "randomGenerator.h"
 namespace shapes{
 
 class app{

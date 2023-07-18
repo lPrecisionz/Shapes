@@ -22,6 +22,7 @@ public:
     bool init();
     void update();
     void drawPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue);
+    void drawPixel(int x, int y, Uint32 color);
     bool processEvents(SDL_Event &event);
     void clear();
     void close();

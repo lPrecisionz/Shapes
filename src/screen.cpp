@@ -75,6 +75,15 @@ void screen::drawPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue){
     m_buffer[y * SCREEN_WIDTH + x] = color;
 }
 
+void screen::drawPixel(int x, int y, Uint32 color){
+    bool outOfBounds = x < 0 || x >= SCREEN_WIDTH || y < 0 || y >= SCREEN_HEIGHT;
+    if(outOfBounds){
+        return;
+    }
+
+    m_buffer[y * SCREEN_WIDTH + x] = color;
+}
+
 
 bool screen::processEvents(SDL_Event &event){
     while (SDL_PollEvent(&event)) {

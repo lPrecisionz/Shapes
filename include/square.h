@@ -12,13 +12,17 @@ private:
     double m_y;
     double m_xspeed;
     double m_yspeed;
+    Uint32 m_color;
 
 public:
     square();
     square(int side);
     void draw(screen &screen, Uint8 red, Uint8 green, Uint8 blue);
+    void draw(screen &screen);
     void update();
-    int getScreenX(); // getting converted coordinates
+    double getRandomSpeed();
+    Uint32 getRandomColor();
+    int getScreenX(); 
     int getScreenY();
 };
 

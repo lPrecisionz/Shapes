@@ -1,16 +1,18 @@
 #include "../include/square.h"
-#include <stdlib.h>
+#include "../include/randomGenerator.h"
 
 namespace shapes{
 
 square::square() : m_x(0), m_y(0), m_side(100){
-    m_xspeed = (rand()*0.05)/RAND_MAX;
-    m_yspeed = (rand()*0.01)/RAND_MAX;
+    m_xspeed = getRandomSpeed();
+    m_yspeed = getRandomSpeed();
+    m_color = getRandomColor();
 }
 
 square::square(int side) : m_x(0), m_y(0), m_side(side){
-    m_xspeed = (rand()*0.05)/RAND_MAX;
-    m_yspeed = (rand()*0.01)/RAND_MAX;
+    m_xspeed = getRandomSpeed();
+    m_yspeed = getRandomSpeed();
+    m_color = getRandomColor();
 }
 
 void square::update(){
@@ -45,6 +47,44 @@ void square::draw(screen &screen, Uint8 red, Uint8 green, Uint8 blue){
             screen.drawPixel(current_x, current_y, red, green, blue);
         }
     }
+}
+
+void square::draw(screen &screen){
+    int screen_x = getScreenX();
+    int screen_y = getScreenY();
+
+    for(int row = -m_side; row < m_side; row++){
+        for(int col = -m_side; col < m_side; col++){
+            int current_x = screen_x + row;
+            int current_y = screen_y + col;
+            screen.drawPixel(current_x, current_y, m_color);
+        }
+    }
+}
+
+double square::getRandomSpeed(){
+    static randomGenerator rng;
+    return rng.getRandomValue(-0.05, 0.05) * 0.5;
+}
+
+Uint32 square::getRandomColor(){
+    static randomGenerator rng;
+
+    Uint8 red = static_cast<Uint8>(rng.getRandomValue(0, 255));
+    Uint8 green = static_cast<Uint8>(rng.getRandomValue(0, 255));
+    Uint8 blue = static_cast<Uint8>(rng.getRandomValue(0, 255));
+
+    Uint32 color{0};
+
+    color += red;
+    color <<= 8;
+    color += green;
+    color <<= 8;
+    color += blue;
+    color <<= 8;
+    color += 0xFF;
+
+    return color;
 }
 
 int square::getScreenX(){
