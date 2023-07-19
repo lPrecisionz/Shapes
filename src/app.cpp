@@ -14,22 +14,13 @@ void app::run(){
     bool quit = false;
     SDL_Event event;
 
+    rectangle rectangle1(100, 50);
     square square1(50);
-    square square2(10);
-    square square3(28);
-    square square4(5);
-    square square5(40);
-    square square6(23);
-
     while (!quit) {
         m_screen.clear();
 
+        rectangle1.update(m_screen);
         square1.update(m_screen);
-        square2.update(m_screen);
-        square3.update(m_screen);
-        square4.update(m_screen);
-        square5.update(m_screen);
-        square6.update(m_screen);
 
         m_screen.update();
         if(!m_screen.processEvents(event)){

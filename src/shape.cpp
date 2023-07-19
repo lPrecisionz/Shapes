@@ -10,12 +10,12 @@ shape::shape() : m_x(0), m_y(0){
     m_color = getRandomColor();
 }
 
-double shape::getRandomSpeed(){
+double shape::getRandomSpeed() const{
     static randomGenerator rng;
     return rng.getRandomValue(-0.05, 0.05) * 0.5;
 }
 
-Uint32 shape::getRandomColor(){
+Uint32 shape::getRandomColor() const{
     static randomGenerator rng;
 
     Uint8 red = static_cast<Uint8>(rng.getRandomValue(0, 255));
@@ -35,11 +35,11 @@ Uint32 shape::getRandomColor(){
     return color;
 }
 
-int shape::getScreenX(){
+int shape::getScreenX() const{
     return static_cast<int>((m_x + 1) * screen::SCREEN_WIDTH/2);
 }
 
-int shape::getScreenY(){
+int shape::getScreenY() const{
     return static_cast<int>((m_y + 1) * screen::SCREEN_HEIGHT/2);
 }
 

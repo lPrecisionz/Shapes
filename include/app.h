@@ -2,6 +2,7 @@
 
 #include "screen.h"
 #include "square.h"
+#include "rectangle.h"
 #include "randomGenerator.h"
 namespace shapes{
 

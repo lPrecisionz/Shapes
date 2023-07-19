@@ -3,8 +3,7 @@
 
 namespace shapes{
 
-square::square() : shape(){
-    m_side = 100;
+square::square() : shape(), m_side(100){
 }
 
 square::square(int side) : shape(), m_side(side){
@@ -31,7 +30,7 @@ void square::updatePosition(){
     }
  }
 
-void square::draw(screen &screen, Uint8 red, Uint8 green, Uint8 blue){
+void square::draw(screen &screen, Uint8 red, Uint8 green, Uint8 blue) const{
     int screen_x = getScreenX();
     int screen_y = getScreenY();
 
@@ -44,7 +43,7 @@ void square::draw(screen &screen, Uint8 red, Uint8 green, Uint8 blue){
     }
 }
 
-void square::draw(screen &screen){
+void square::draw(screen &screen) const{
     int screen_x = getScreenX();
     int screen_y = getScreenY();
 

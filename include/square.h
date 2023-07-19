@@ -1,7 +1,6 @@
 /* square.h */
 #pragma once
 
-#include "screen.h"
 #include "shape.h"
 
 namespace shapes{
@@ -13,8 +12,8 @@ private:
 public:
     square();
     square(int side);
-    void draw(screen &screen, Uint8 red, Uint8 green, Uint8 blue);
-    void draw(screen &screen);
+    void draw(screen &screen, Uint8 red, Uint8 green, Uint8 blue) const override;
+    void draw(screen &screen) const override;
     void updatePosition();
     void update(screen &screen);
 };
