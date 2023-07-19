@@ -3,16 +3,11 @@
 
 namespace shapes{
 
-square::square() : m_x(0), m_y(0), m_side(100){
-    m_xspeed = getRandomSpeed();
-    m_yspeed = getRandomSpeed();
-    m_color = getRandomColor();
+square::square() : shape(){
+    m_side = 100;
 }
 
-square::square(int side) : m_x(0), m_y(0), m_side(side){
-    m_xspeed = getRandomSpeed();
-    m_yspeed = getRandomSpeed();
-    m_color = getRandomColor();
+square::square(int side) : shape(), m_side(side){
 }
 
 void square::updatePosition(){
@@ -65,39 +60,6 @@ void square::draw(screen &screen){
 void square::update(screen &screen){
     this->updatePosition();
     this->draw(screen);
-}
-
-double square::getRandomSpeed(){
-    static randomGenerator rng;
-    return rng.getRandomValue(-0.05, 0.05) * 0.5;
-}
-
-Uint32 square::getRandomColor(){
-    static randomGenerator rng;
-
-    Uint8 red = static_cast<Uint8>(rng.getRandomValue(0, 255));
-    Uint8 green = static_cast<Uint8>(rng.getRandomValue(0, 255));
-    Uint8 blue = static_cast<Uint8>(rng.getRandomValue(0, 255));
-
-    Uint32 color{0};
-
-    color += red;
-    color <<= 8;
-    color += green;
-    color <<= 8;
-    color += blue;
-    color <<= 8;
-    color += 0xFF;
-
-    return color;
-}
-
-int square::getScreenX(){
-    return static_cast<int>((m_x + 1) * screen::SCREEN_WIDTH/2);
-}
-
-int square::getScreenY(){
-    return static_cast<int>((m_y + 1) * screen::SCREEN_HEIGHT/2);
 }
 
 } //namespace shapes

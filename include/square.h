@@ -2,17 +2,13 @@
 #pragma once
 
 #include "screen.h"
+#include "shape.h"
 
 namespace shapes{
 
-class square{
+class square : public shape{
 private:
     int m_side;
-    double m_x;
-    double m_y;
-    double m_xspeed;
-    double m_yspeed;
-    Uint32 m_color;
 
 public:
     square();
@@ -21,10 +17,6 @@ public:
     void draw(screen &screen);
     void updatePosition();
     void update(screen &screen);
-    double getRandomSpeed();
-    Uint32 getRandomColor();
-    int getScreenX(); 
-    int getScreenY();
 };
 
 } //namespace shapes
