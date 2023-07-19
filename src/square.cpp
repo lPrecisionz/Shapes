@@ -9,9 +9,10 @@ square::square() : shape(), m_side(100){
 square::square(int side) : shape(), m_side(side){
 }
 
-void square::updatePosition(){
-    m_x += m_xspeed;
-    m_y += m_yspeed;
+void square::updatePosition(Uint32 &deltaTime){
+    double deltaSeconds = deltaTime / 1000.0;
+    m_x += m_xspeed * deltaSeconds;
+    m_y += m_yspeed * deltaSeconds;
     
     int screen_x = getScreenX();
     int screen_y = getScreenY();
@@ -56,8 +57,8 @@ void square::draw(screen &screen) const{
     }
 }
 
-void square::update(screen &screen){
-    this->updatePosition();
+void square::update(screen &screen, Uint32 &deltaTime){
+    this->updatePosition(deltaTime);
     this->draw(screen);
 }
 

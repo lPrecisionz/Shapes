@@ -12,7 +12,7 @@ shape::shape() : m_x(0), m_y(0){
 
 double shape::getRandomSpeed() const{
     static randomGenerator rng;
-    return rng.getRandomValue(-0.05, 0.05) * 0.5;
+    return rng.getRandomValue(0.5, 1.5);
 }
 
 Uint32 shape::getRandomColor() const{

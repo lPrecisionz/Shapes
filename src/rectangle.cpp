@@ -8,9 +8,10 @@ rectangle::rectangle(): shape(), m_side1(20), m_side2(50){
 rectangle::rectangle(int side1, int side2): m_side1(side1), m_side2(side2){
 }
 
-void rectangle::updatePosition(){
-    m_x += m_xspeed;
-    m_y += m_yspeed;
+void rectangle::updatePosition(Uint32 &deltaTime){
+    double deltaSeconds = deltaTime / 1000.0;
+    m_x += m_xspeed * deltaSeconds;
+    m_y += m_yspeed * deltaSeconds;
     
     int screen_x = getScreenX();
     int screen_y = getScreenY();
@@ -56,9 +57,9 @@ void rectangle::draw(screen &screen) const{
     }
 }
 
-void rectangle::update(screen &screen){
+void rectangle::update(screen &screen, Uint32 &deltaTime){
     this->draw(screen);
-    this->updatePosition();
+    this->updatePosition(deltaTime);
 }
 
 } //namespace shapes

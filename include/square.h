@@ -14,8 +14,8 @@ public:
     square(int side);
     void draw(screen &screen, Uint8 red, Uint8 green, Uint8 blue) const override;
     void draw(screen &screen) const override;
-    void updatePosition();
-    void update(screen &screen);
+    void updatePosition(Uint32 &deltaTime);
+    void update(screen &screen, Uint32 &deltaTime);
 };
 
 } //namespace shapes
