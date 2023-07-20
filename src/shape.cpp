@@ -5,17 +5,18 @@
 namespace shapes{
 
 shape::shape() : m_x(0), m_y(0){
+    static randomGenerator rng;
     m_xspeed = getRandomSpeed();
     m_yspeed = getRandomSpeed();
     m_color = getRandomColor();
 }
 
-double shape::getRandomSpeed() const{
+double shape::getRandomSpeed(){
     static randomGenerator rng;
-    return rng.getRandomValue(0.5, 1.5);
+    return rng.getRandomValue(-1, 1);
 }
 
-Uint32 shape::getRandomColor() const{
+Uint32 shape::getRandomColor(){
     static randomGenerator rng;
 
     Uint8 red = static_cast<Uint8>(rng.getRandomValue(0, 255));

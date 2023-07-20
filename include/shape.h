@@ -14,8 +14,8 @@ protected:
 
 public:
     shape();
-    double getRandomSpeed() const;
-    Uint32 getRandomColor() const;
+    double getRandomSpeed();
+    Uint32 getRandomColor();
     int getScreenX() const;
     int getScreenY() const;
     virtual void draw(screen &screen, Uint8 red, Uint8 green, Uint8 blue) const = 0;
