@@ -11,8 +11,8 @@ square::square(int side) : shape(), m_side(side){
 
 void square::updatePosition(Uint32 &deltaTime){
     double deltaSeconds = deltaTime / 1000.0;
-    m_x += m_xspeed * deltaSeconds;
-    m_y += m_yspeed * deltaSeconds;
+    m_point.x += m_xspeed * deltaSeconds;
+    m_point.y += m_yspeed * deltaSeconds;
     
     int screen_x = getScreenX();
     int screen_y = getScreenY();

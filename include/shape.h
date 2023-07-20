@@ -4,10 +4,14 @@
 
 namespace shapes{
 
+struct point{
+    double x;
+    double y;
+};
+
 class shape{
 protected:
-    double m_x;
-    double m_y;
+    point m_point;
     double m_xspeed;
     double m_yspeed;
     Uint32 m_color;

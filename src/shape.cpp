@@ -4,7 +4,7 @@
 
 namespace shapes{
 
-shape::shape() : m_x(0), m_y(0){
+shape::shape() : m_point{0, 0}{
     static randomGenerator rng;
     m_xspeed = getRandomSpeed();
     m_yspeed = getRandomSpeed();
@@ -37,11 +37,11 @@ Uint32 shape::getRandomColor(){
 }
 
 int shape::getScreenX() const{
-    return static_cast<int>((m_x + 1) * screen::SCREEN_WIDTH/2);
+    return static_cast<int>((m_point.x + 1) * screen::SCREEN_WIDTH/2);
 }
 
 int shape::getScreenY() const{
-    return static_cast<int>((m_y + 1) * screen::SCREEN_HEIGHT/2);
+    return static_cast<int>((m_point.y + 1) * screen::SCREEN_HEIGHT/2);
 }
 
 

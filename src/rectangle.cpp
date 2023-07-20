@@ -10,8 +10,8 @@ rectangle::rectangle(int side1, int side2): m_side1(side1), m_side2(side2){
 
 void rectangle::updatePosition(Uint32 &deltaTime){
     double deltaSeconds = deltaTime / 1000.0;
-    m_x += m_xspeed * deltaSeconds;
-    m_y += m_yspeed * deltaSeconds;
+    m_point.x += m_xspeed * deltaSeconds;
+    m_point.y += m_yspeed * deltaSeconds;
     
     int screen_x = getScreenX();
     int screen_y = getScreenY();
